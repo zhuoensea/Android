@@ -3,6 +3,9 @@ package com.example.zhuo.myapplication;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,9 +14,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); //引用布局文件activity_main.xml
-        /******** LogCat ********/
-        //逐级递增：Log.v()日志信息，Log.d()调试信息，Log.i()重要数据，Log.w()警告信息，Log.e()错误信息
-        //传入两个参数：第一个参数tag，用于对打印信息进行过滤；第二个参数msg，即要打印的内容
+        /******** LogCat ********
+        逐级递增：Log.v()日志信息，Log.d()调试信息，Log.i()重要数据，Log.w()警告信息，Log.e()错误信息
+        传入两个参数：第一个参数tag，用于对打印信息进行过滤；第二个参数msg，即要打印的内容 */
         Log.d("MainActivity", "onCreate execute");
+
+        /******** Button ********/
+        Button button1 = (Button) findViewById(R.id.button_1);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /******** Toast ********/
+                Toast.makeText(MainActivity.this, "You clicked Button 1", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
