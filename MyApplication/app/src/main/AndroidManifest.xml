@@ -15,6 +15,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SecondActivity">
+            <intent-filter>
+                <action android:name="com.example.zhuo.myapplication.activitytest.ACTION_START" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ThirdActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http"/>
+                <!--<data> 只有<data>标签中指定的内容和Intent中携带的Data完全一致时，当前活动才能够响应该Intent-->
+                    <!--android:scheme 指定数据协议，如http，geo显示地理位置，tel拨打电话等-->
+                    <!--android:host 指定数据的主机名，如www.baidu.com-->
+                    <!--android:port 指定数据的端口，一般紧随主机名之后-->
+                    <!--android:path 指定主机名和端口之后的部分，如一段网址中跟在域名之后的内容-->
+                    <!--android:mimeType 指定可以处理的数据类型，允许使用通配符的方式进行指定-->
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
