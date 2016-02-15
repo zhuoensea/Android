@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         /******** LogCat ********
         * 逐级递增：Log.v()日志信息，Log.d()调试信息，Log.i()重要数据，Log.w()警告信息，Log.e()错误信息
         * 传入两个参数：第一个参数tag，用于对打印信息进行过滤；第二个参数msg，即要打印的内容 */
-        Log.d("MainActivity", "onCreate execute");
+        //Log.d("MainActivity", "onCreate execute");
 
         /******** Button ********/
         Button button1 = (Button) findViewById(R.id.button_1);
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 /** Intent  在不同组件中传递数据 ********
                 ******** 显式Intent ********
                  * 接收两个参数，第一个参数Context要求提供一个启动活动的上下文；第二个参数Class指定要启动的目标活动*/
-                //Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 /******** 隐式Intent ********
                  * 需要<action>, <category> 同时匹配才能响应*/
                 //Intent intent = new Intent("com.example.zhuo.myapplication.activitytest.ACTION_START");
@@ -46,13 +46,30 @@ public class MainActivity extends AppCompatActivity {
                 //Intent intent = new Intent(Intent.ACTION_DIAL);
                 //intent.setData(Uri.parse("tel:10086"));
                 /******** 利用Intent向下一个活动传递数据 ********/
-                String data = "Hello ThirdActivity";
-                Intent intent = new Intent(MainActivity.this, ThirdActivity.class);
-                intent.putExtra("extra_data", data);
+                //String data = "Hello ThirdActivity";
+                //Intent intent = new Intent(MainActivity.this, ThirdActivity.class);
+                //intent.putExtra("extra_data", data);
 
-                startActivity(intent);
+                //startActivity(intent);
+
+                startActivityForResult(intent, 1); // 返回数据给上一个活动，第一个参数是intent，第二个参数是请求码
             }
+
         });
+    }
+
+    /******** 利用Intent向下一个活动传递数据 ********/
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case 1:
+                if (resultCode == RESULT_OK) {
+                    String returnedData = data.getStringExtra("data_return");
+                    Log.d("MainActivity", returnedData);
+                }
+                break;
+            default:
+        }
     }
 
     /******** Menu ********/
