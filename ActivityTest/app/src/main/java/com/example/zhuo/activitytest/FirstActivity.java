@@ -12,7 +12,7 @@ public class FirstActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("FirstActivity", this.toString());
+        Log.d("FirstActivity", "onRestart");
         setContentView(R.layout.activity_first);
 
         Button button1 = (Button) findViewById(R.id.button_1);

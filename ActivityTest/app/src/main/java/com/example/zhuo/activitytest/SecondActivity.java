@@ -12,7 +12,7 @@ public class SecondActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("SecondActivity", this.toString());
+        Log.d("SecondActivity", "onDestroy");
         setContentView(R.layout.activity_second);
 
         Button button2 = (Button) findViewById(R.id.button_2);
