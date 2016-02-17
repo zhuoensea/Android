@@ -28,7 +28,8 @@
                 <category android:name="com.example.zhuo.activitytest.MY_CATEGOTY" />
             </intent-filter>
         </activity>
-        <activity android:name=".ThirdActivity"></activity>
+        <activity android:name=".ThirdActivity" />
+        <activity android:name=".BaseActivity"></activity>
     </application>
 
 </manifest>
